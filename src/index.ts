@@ -1,4 +1,6 @@
-import { Application, Container, Loader, Point, Sprite } from 'pixi.js'
+import { Application, Loader} from 'pixi.js'
+import { assets } from './assets';
+import { Scene } from './Scene';
 
 const app = new Application({
 	view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
@@ -31,36 +33,12 @@ window.addEventListener("resize",()=>{
 });
 window.dispatchEvent(new Event ("resize"));
 
-Loader.shared.add({url: "./tijeras.png", name: "nuestraTijera"});
-Loader.shared.add({url: "./lapiz.png",name:"lapiz"});
+Loader.shared.add(assets);
 
 Loader.shared.onComplete.add(()=>{
-	const tijeras: Sprite = Sprite.from("nuestraTijera");
 
-	const lapiz: Sprite= Sprite.from("lapiz");
-
-	lapiz.position.set(240,60);
-	lapiz.scale.set(1.2);
-
-	const tijerasYlapiz:Container= new Container();
-
-	tijerasYlapiz.addChild(tijeras);
-	tijerasYlapiz.addChild(lapiz); 
-
-	tijerasYlapiz.scale.set(0.5);
-	tijerasYlapiz.x=200;
-	tijerasYlapiz.y=300;
-
-	console.log(lapiz.toGlobal(new Point()));							//muestra en pantalla la posicion del lapiz en el global
-	console.log(lapiz.parent.toGlobal(lapiz.position));
-
-	lapiz.angle=-120;
-
-	//const aux= lapiz.parent.toLocal(new Point(640,360));
-	//lapiz.position.x=aux.x;
-	//lapiz.position.y=aux.y;
-
-	app.stage.addChild(tijerasYlapiz);
+	const myScene = new Scene();
+	app.stage.addChild(myScene);
 
 })
 Loader.shared.load();
