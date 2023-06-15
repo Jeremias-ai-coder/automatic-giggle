@@ -1,4 +1,4 @@
-import { AnimatedSprite, Container, Graphics, Texture,Text } from "pixi.js";
+import { AnimatedSprite, Container, Graphics, Texture,Text, NineSlicePlane} from "pixi.js";
 import { TijerasYlapiz } from "./TijerasYlapiz";
 
 export class Scene extends Container{
@@ -56,5 +56,74 @@ export class Scene extends Container{
 
         const myText: Text=new Text("Hello World!",{fontSize:35});
         this.addChild(myText);
+
+        //Nine-Slice Plane
+        
+        //Fondo
+
+      const panel=new NineSlicePlane(
+          Texture.from("fondo"),
+          35,35,35,35
+      );
+      this.addChild(panel);
+      panel.width=170;
+      panel.height=220;
+      panel.scale.set(3);
+      panel.position.x=400;
+      panel.position.y=50;
+        //cartel
+
+      const Cartel= new NineSlicePlane(
+          Texture.from("cartel"),
+          35,35,35,35
+      );
+      this.addChild(Cartel);
+      Cartel.width=270;
+      Cartel.height=120;
+      Cartel.scale.set(2);
+      Cartel.position.x=390;
+      Cartel.position.y=20;
+        //texto cartel
+      
+      const textoCartel: Text=new Text("Eres terrible!",{fontSize:45, fill:0xFFFFFF});
+      this.addChild(textoCartel);
+      textoCartel.position.x=530;
+      textoCartel.position.y=115;
+
+      //estrella completa
+      const estrellCompleta =new NineSlicePlane(
+          Texture.from("estrella-com"),
+          35,35,35,35
+      );
+      this.addChild(estrellCompleta);
+      estrellCompleta.width=150;
+      estrellCompleta.height=150;
+      estrellCompleta.scale.set(1);
+      estrellCompleta.position.x=450;
+      estrellCompleta.position.y=190;
+
+      //estrella vacia
+
+      const estrellaVacia = new NineSlicePlane(
+          Texture.from("estrella-incom"),
+          35,35,35,35
+      );
+      this.addChild(estrellaVacia);
+      estrellaVacia.width=160;
+      estrellaVacia.height=160;
+      estrellaVacia.scale.set(0.94);
+      estrellaVacia.position.x=570;
+      estrellaVacia.position.y=185;
+
+      const estrellaVacia2 = new NineSlicePlane(
+        Texture.from("estrella-incom2"),
+        35,35,35,35
+    );
+    this.addChild(estrellaVacia2);
+    estrellaVacia2.width=160;
+    estrellaVacia2.height=160;
+    estrellaVacia2.scale.set(0.94);
+    estrellaVacia2.position.x=700;
+    estrellaVacia2.position.y=185;
     }
 }

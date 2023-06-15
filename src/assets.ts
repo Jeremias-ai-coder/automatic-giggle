@@ -11,6 +11,12 @@ export const assets = [
     {url: "./fight/fighting4.png", name: "fight4"},
     {url: "./fight/fighting5.png", name: "fight5"},
     {url: "./fight/fighting6.png", name: "fight6"},
-    {url: "./fight/fighting7.png", name: "fight7"}
+    {url: "./fight/fighting7.png", name: "fight7"},
+
+    {url: "./ui/fondo.png", name: "fondo"},
+    {url: "./ui/cartel.png", name: "cartel"},
+    {url: "./ui/estrella-completa.png", name: "estrella-com"},
+    {url: "./ui/estrella-incompleta.png", name: "estrella-incom"},
+    {url: "./ui/estrella-incompleta2.png", name: "estrella-incom2"}
 
 ];
