@@ -83,13 +83,14 @@ export class Scene extends Container{
       Cartel.scale.set(2);
       Cartel.position.x=390;
       Cartel.position.y=20;
+      
         //texto cartel
       
       const textoCartel: Text=new Text("Eres terrible!",{fontSize:45, fill:0xFFFFFF});
       this.addChild(textoCartel);
       textoCartel.position.x=530;
       textoCartel.position.y=115;
-
+      
       //estrella completa
       const estrellCompleta =new NineSlicePlane(
           Texture.from("estrella-com"),
@@ -126,6 +127,7 @@ export class Scene extends Container{
       estrellaVacia2.position.x=700;
       estrellaVacia2.position.y=185;
 
+      //botón menú
       const botonMenu = new NineSlicePlane(
         Texture.from("menu_buttom"),
         10,10,10,10
@@ -137,6 +139,7 @@ export class Scene extends Container{
       botonMenu.position.x=420;
       botonMenu.position.y=485;
       
+      //botón reintentar
       const botonRetry = new NineSlicePlane(
         Texture.from("retry_buttom"),
         10,10,10,10
@@ -148,6 +151,7 @@ export class Scene extends Container{
       botonRetry.position.x=570;
       botonRetry.position.y=485;
 
+      //botón siguiente
       const botonNext = new NineSlicePlane(
         Texture.from("next_buttom"),
         10,10,10,10
@@ -158,5 +162,7 @@ export class Scene extends Container{
       botonNext.scale.set(1);
       botonNext.position.x=720;
       botonNext.position.y=485;
+
+      
     }
 }

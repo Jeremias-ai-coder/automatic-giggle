@@ -20,6 +20,11 @@ export const assets = [
     {url: "./ui/estrella-incompleta2.png", name: "estrella-incom2"},
     {url: "./ui/menu_buttom.png", name: "menu_buttom"},
     {url: "./ui/retry_buttom.png", name: "retry_buttom"},
-    {url: "./ui/next_buttom.png", name: "next_buttom"}
+    {url: "./ui/next_buttom.png", name: "next_buttom"},
+
+    {url: "./UIdemo/click_button.jpg", name: "mouse_button"},
+    {url: "./UIdemo/hand_button.jpg", name: "touch_button"},
+    {url: "./UIdemo/FondoUIdemo.png", name: "FondoUI"},
+    {url: "./UIdemo/marcoUidemo.png", name: "marcoUI"},
 
 ];
