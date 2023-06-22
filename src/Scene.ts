@@ -119,11 +119,44 @@ export class Scene extends Container{
         Texture.from("estrella-incom2"),
         35,35,35,35
     );
-    this.addChild(estrellaVacia2);
-    estrellaVacia2.width=160;
-    estrellaVacia2.height=160;
-    estrellaVacia2.scale.set(0.94);
-    estrellaVacia2.position.x=700;
-    estrellaVacia2.position.y=185;
+      this.addChild(estrellaVacia2);
+      estrellaVacia2.width=160;
+      estrellaVacia2.height=160;
+      estrellaVacia2.scale.set(0.94);
+      estrellaVacia2.position.x=700;
+      estrellaVacia2.position.y=185;
+
+      const botonMenu = new NineSlicePlane(
+        Texture.from("menu_buttom"),
+        10,10,10,10
+      );
+      this.addChild(botonMenu);
+      botonMenu.width=160;
+      botonMenu.height=160;
+      botonMenu.scale.set(1);
+      botonMenu.position.x=420;
+      botonMenu.position.y=485;
+      
+      const botonRetry = new NineSlicePlane(
+        Texture.from("retry_buttom"),
+        10,10,10,10
+      );
+      this.addChild(botonRetry);
+      botonRetry.width=160;
+      botonRetry.height=160;
+      botonRetry.scale.set(1);
+      botonRetry.position.x=570;
+      botonRetry.position.y=485;
+
+      const botonNext = new NineSlicePlane(
+        Texture.from("next_buttom"),
+        10,10,10,10
+      );
+      this.addChild(botonNext);
+      botonNext.width=160;
+      botonNext.height=160;
+      botonNext.scale.set(1);
+      botonNext.position.x=720;
+      botonNext.position.y=485;
     }
 }

@@ -17,6 +17,9 @@ export const assets = [
     {url: "./ui/cartel.png", name: "cartel"},
     {url: "./ui/estrella-completa.png", name: "estrella-com"},
     {url: "./ui/estrella-incompleta.png", name: "estrella-incom"},
-    {url: "./ui/estrella-incompleta2.png", name: "estrella-incom2"}
+    {url: "./ui/estrella-incompleta2.png", name: "estrella-incom2"},
+    {url: "./ui/menu_buttom.png", name: "menu_buttom"},
+    {url: "./ui/retry_buttom.png", name: "retry_buttom"},
+    {url: "./ui/next_buttom.png", name: "next_buttom"}
 
 ];
