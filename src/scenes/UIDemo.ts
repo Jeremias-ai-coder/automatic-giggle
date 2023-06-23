@@ -1,6 +1,11 @@
 import { Container, NineSlicePlane, Sprite, Text, Texture } from "pixi.js";
+import { Button } from "../ui/Button";
+import { keyboard } from "../utils/keyboard";
 
 export class UIDemo extends Container{
+
+    private buttonMouse:Button;
+    private lastKeyPressed:Text;
     constructor(){
         super();
         const dialog=new Container();   
@@ -21,13 +26,18 @@ export class UIDemo extends Container{
         const background = Sprite.from("Window");
         dialog.addChild(background);
         
-        const buttonMouse= Sprite.from("mouse_button");
-        buttonMouse.anchor.set(0.5);
-        buttonMouse.width=100;
-        buttonMouse.height=100;
-        buttonMouse.y=120;
-        buttonMouse.x=90;
-        dialog.addChild(buttonMouse);
+        this.buttonMouse= new Button(
+            Texture.from("mouse_button"),
+            Texture.from("mouse_downbutton"),
+            Texture.from("mouse_button")
+        );
+       this.buttonMouse.on("buttonClick", this.onButtonClick,this);
+        this.buttonMouse.width=100;
+        this.buttonMouse.height=100;
+        this.buttonMouse.y=120;
+        this.buttonMouse.x=90;
+            
+        dialog.addChild(this.buttonMouse);
 
         const buttonTouch= Sprite.from("touch_button");
         buttonTouch.anchor.set(0.5);
@@ -37,12 +47,34 @@ export class UIDemo extends Container{
         buttonTouch.x=220;
         dialog.addChild(buttonTouch);
 
-        const lastKeyPressed=new Text("Waiting...",{fontSize: 48});
-        lastKeyPressed.anchor.set(0.2);
-        lastKeyPressed.x=100;
-        lastKeyPressed.y=340;
-        dialog.addChild(lastKeyPressed);
+        const buttonPointer= Sprite.from("default_button");
+        buttonPointer.anchor.set(0.5);
+        buttonPointer.width=100;
+        buttonPointer.height=100;
+        buttonPointer.y=250;
+        buttonPointer.x=155;
+        dialog.addChild(buttonPointer);
+
+        this.lastKeyPressed=new Text("Waiting...",{fontSize: 48});
+        this.lastKeyPressed.anchor.set(0.2);
+        this.lastKeyPressed.x=100;
+        this.lastKeyPressed.y=340;
+        dialog.addChild(this.lastKeyPressed);
 
         this.addChild(dialog);
+
+        keyboard.down.on("KeyB", this.onKeyB,this);
+        keyboard.up.on("KeyB", this.onKeyBUp,this);
     }
+  
+    private onButtonClick():void{
+        console.log("my new button clicker!", this);
+    }
+    private onKeyB():void{
+        console.log("apreté la B!",this);
+    }
+    private onKeyBUp():void{
+        console.log("solté la B!",this);
+    }
+ 
 }

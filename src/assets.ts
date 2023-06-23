@@ -21,10 +21,17 @@ export const assets = [
     {url: "./ui/menu_buttom.png", name: "menu_buttom"},
     {url: "./ui/retry_buttom.png", name: "retry_buttom"},
     {url: "./ui/next_buttom.png", name: "next_buttom"},
-
+   
     {url: "./UIdemo/click_button.jpg", name: "mouse_button"},
+    {url: "./UIdemo/click_downbutton.jpg", name: "mouse_downbutton"},
+    {url: "./UIdemo/click_overbutton.jpg", name: "mouse_overbutton"},
     {url: "./UIdemo/hand_button.jpg", name: "touch_button"},
+    {url: "./UIdemo/hand_downbutton.jpg", name: "touch_downbutton"},
+    {url: "./UIdemo/hand_overbutton.jpg", name: "touch_overbutton"},
     {url: "./UIdemo/FondoUIdemo.png", name: "FondoUI"},
     {url: "./UIdemo/marcoUidemo.png", name: "marcoUI"},
+    {url: "./UIdemo/default_button.png", name: "default_button"},
+    {url: "./UIdemo/default_downbutton.png", name: "default_downbutton"},
+    {url: "./UIdemo/default_overbutton.png", name: "default_overbutton"},
 
 ];

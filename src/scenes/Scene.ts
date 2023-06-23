@@ -1,5 +1,5 @@
 import { AnimatedSprite, Container, Graphics, Texture,Text, NineSlicePlane} from "pixi.js";
-import { TijerasYlapiz } from "./TijerasYlapiz";
+import { TijerasYlapiz } from "../game/TijerasYlapiz";
 
 export class Scene extends Container{
 
@@ -27,7 +27,7 @@ export class Scene extends Container{
          ],
          true
        );
-       FightAnimated.play();
+       //FightAnimated.play();
        FightAnimated.animationSpeed = 0.2;
        FightAnimated.scale.set(0.1);
        this.addChild(FightAnimated);
