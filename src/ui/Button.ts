@@ -41,3 +41,39 @@ export class Button extends Container{
     }
 
 }
+
+// //botón menú del Scene.ts
+      // const botonMenu = new NineSlicePlane(
+      //   Texture.from("menu_buttom"),
+      //   10,10,10,10
+      // );
+      // this.addChild(botonMenu);
+      // botonMenu.width=160;
+      // botonMenu.height=160;
+      // botonMenu.scale.set(1);
+      // botonMenu.position.x=420;
+      // botonMenu.position.y=485;
+      
+      // //botón reintentar
+      // const botonRetry = new NineSlicePlane(
+      //   Texture.from("retry_buttom"),
+      //   10,10,10,10
+      // );
+      // this.addChild(botonRetry);
+      // botonRetry.width=160;
+      // botonRetry.height=160;
+      // botonRetry.scale.set(1);
+      // botonRetry.position.x=570;
+      // botonRetry.position.y=485;
+
+      // //botón siguiente
+      // const botonNext = new NineSlicePlane(
+      //   Texture.from("next_buttom"),
+      //   10,10,10,10
+      // );
+      // this.addChild(botonNext);
+      // botonNext.width=160;
+      // botonNext.height=160;
+      // botonNext.scale.set(1);
+      // botonNext.position.x=720;
+      // botonNext.position.y=485;
