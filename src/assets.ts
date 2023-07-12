@@ -21,6 +21,9 @@ export const assets = [
     {url: "./ui/menu_buttom.png", name: "menu_buttom"},
     {url: "./ui/retry_buttom.png", name: "retry_buttom"},
     {url: "./ui/next_buttom.png", name: "next_buttom"},
+    {url: "./ui/Fondo para colisiones.jpg", name: "fondo_colisiones"},
+    {url: "./ui/Plataforma.png", name: "Plataform"},
+    {url: "./ui/Plataforma2.png", name: "Plataform2"},
    
     {url: "./UIdemo/click_button.jpg", name: "mouse_button"},
     {url: "./UIdemo/click_downbutton.jpg", name: "mouse_downbutton"},

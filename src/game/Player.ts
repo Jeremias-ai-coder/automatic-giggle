@@ -1,13 +1,16 @@
-import { AnimatedSprite, Graphics, Texture } from "pixi.js";
+import { AnimatedSprite, Graphics,Rectangle,Texture } from "pixi.js";
 import { PhysicsContainer } from "./PhysicsContainer";
 import { keyboard } from "../utils/keyboard";
+import { IHitbox } from "./IHitbox";
 
-export class Player extends PhysicsContainer
+export class Player extends PhysicsContainer implements IHitbox
 {
     private static readonly GRAVITY = 600;
     private static readonly MOVE_SPEED = 350;
     public canJump=true;
     private FightAnimated: AnimatedSprite;
+    private hitBox:Graphics;
+
     constructor(){
         super();
         
@@ -34,8 +37,17 @@ export class Player extends PhysicsContainer
         auxZero.drawCircle(0,0,10);
         auxZero.endFill();
         
+        this.hitBox=new Graphics();
+        this.hitBox.beginFill(0x00FF00,0.3);
+        this.hitBox.drawRect(0,0,80,250);
+        this.hitBox.endFill();
+        this.hitBox.x=-40;
+        this.hitBox.y=-260;
+
+
         this.addChild(this.FightAnimated);
         this.addChild(auxZero);
+        this.addChild(this.hitBox);
         this.scale.x=-1;
 
         this.acceleration.y=Player.GRAVITY;
@@ -76,7 +88,12 @@ export class Player extends PhysicsContainer
         if(this.canJump)
         {
             this.canJump=false;
-            this.speed.y=-600;
+            this.speed.y=-700;
         }
+    }
+
+    public getHitbox():Rectangle
+    {
+        return this.hitBox.getBounds();
     }
 }
