@@ -5,7 +5,7 @@ export interface IHitbox{
     getHitbox():Rectangle;
 }
 
-export function checkCollision(objA:IHitbox,objB:IHitbox):boolean
+export function checkCollision(objA:IHitbox,objB:IHitbox):Rectangle |null
 {
     const rA=objA.getHitbox();      //rA=rectangulo A
     const rB=objB.getHitbox();      //rB=rectangulo B
@@ -17,12 +17,17 @@ export function checkCollision(objA:IHitbox,objB:IHitbox):boolean
 
     //"make scence" means that left is left and right is right
     const makesScenceHorizontal = rightmostLeft < leftmostRight;
-    const makesScenceVertical = bottommostTop > topmostBottom;
+    const makesScenceVertical = bottommostTop < topmostBottom;
     if (makesScenceHorizontal && makesScenceVertical)
     {
-        return true;
+        const retval= new Rectangle();
+        retval.x=rightmostLeft;
+        retval.y=bottommostTop;
+        retval.width=leftmostRight - rightmostLeft;
+        retval.height=topmostBottom - bottommostTop;
+        return retval;
     }else
     {
-        return false;
+        return null;
     }
 }

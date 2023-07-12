@@ -23,7 +23,7 @@ export class TickerScene extends Container implements IUpdateable{
         bg.height=1400;
         this.addChild(bg);
 
-        this.platforms=[];
+        this.platforms=new Array;
 
         const plat=new Plataform()
         plat.width=500;
@@ -50,10 +50,16 @@ export class TickerScene extends Container implements IUpdateable{
     {
         this.playerFighter.update(deltaTime);
        
-        console.log(checkCollision(this.playerFighter,this.platforms[0]));
-
+        for(let Plataform of this.platforms){
+            const overlap=checkCollision(this.playerFighter,Plataform);
+        if(overlap !=null)
+        {
+            this.playerFighter.separate(overlap,Plataform.position);
+        }
+            
+       }
         //limitacion de pantalla
-        if(this.playerFighter.x>(WIDTH))
+        if(this.playerFighter.x>WIDTH)
         {
             this.playerFighter.x=WIDTH;
            
@@ -67,6 +73,7 @@ export class TickerScene extends Container implements IUpdateable{
         if(this.playerFighter.y>HEIGHT)
         {
             this.playerFighter.y=HEIGHT;
+            this.playerFighter.speed.y=0;
             this.playerFighter.canJump=true;
         }
         

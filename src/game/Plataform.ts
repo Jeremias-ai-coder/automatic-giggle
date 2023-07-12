@@ -13,7 +13,7 @@ export class Plataform extends Container implements IHitbox{
 
         this.hitBox=new Graphics();
         this.hitBox.beginFill(0x0000FF,0.3);
-        this.hitBox.drawRect(0,0,1050,400);
+        this.hitBox.drawRect(0,0,1077,550);
         this.hitBox.x=10;
         this.hitBox.y=70;
         this.hitBox.endFill();
@@ -22,6 +22,6 @@ export class Plataform extends Container implements IHitbox{
         
     }
     getHitbox(): Rectangle {
-        throw new Error("Method not implemented.");
+        return this.hitBox.getBounds();
     }
 }

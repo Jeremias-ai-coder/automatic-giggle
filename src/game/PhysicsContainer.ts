@@ -1,5 +1,4 @@
 import { Container, Point} from "pixi.js";
-//import { keyboard } from "../utils/keyboard";
 
 export class PhysicsContainer extends Container{
     
@@ -13,17 +12,5 @@ export class PhysicsContainer extends Container{
 
       this.speed.x+=this.acceleration.x*deltaSeconds;
       this.speed.y+=this.acceleration.y*deltaSeconds;
-          // if(keyboard.state.get("ArrowRight")){
-          //   this.x+=this.speed.x*deltaSeconds;
-          // }
-          // if(keyboard.state.get("ArrowLeft")){
-          //    this.x-=this.speed.x*deltaSeconds;
-          //  }
-          //  if(keyboard.state.get("ArrowDown")){
-          //    this.y+=this.speed.y*deltaSeconds;
-          //  }
-          //  if(keyboard.state.get("ArrowUp")){
-          //    this.y-=this.speed.y*deltaSeconds;
-          //  }  
     }
 }

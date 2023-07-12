@@ -1,10 +1,11 @@
-import { AnimatedSprite, Graphics,Rectangle,Texture } from "pixi.js";
+import { AnimatedSprite, Graphics,ObservablePoint,Rectangle,Texture } from "pixi.js";
 import { PhysicsContainer } from "./PhysicsContainer";
 import { keyboard } from "../utils/keyboard";
 import { IHitbox } from "./IHitbox";
 
 export class Player extends PhysicsContainer implements IHitbox
 {
+    
     private static readonly GRAVITY = 600;
     private static readonly MOVE_SPEED = 350;
     public canJump=true;
@@ -28,7 +29,7 @@ export class Player extends PhysicsContainer implements IHitbox
             false
           );
         this.FightAnimated.play();
-        this.FightAnimated.anchor.set(0.7,0.9);
+        this.FightAnimated.anchor.set(0.71,0.87);
         this.FightAnimated.animationSpeed = 0.2;
         this.FightAnimated.scale.set(0.1);
             
@@ -39,16 +40,17 @@ export class Player extends PhysicsContainer implements IHitbox
         
         this.hitBox=new Graphics();
         this.hitBox.beginFill(0x00FF00,0.3);
-        this.hitBox.drawRect(0,0,80,250);
+        this.hitBox.drawRect(0,0,600,2800);
         this.hitBox.endFill();
-        this.hitBox.x=-40;
-        this.hitBox.y=-260;
+        this.hitBox.x=-310;
+        this.hitBox.y=-2800;
 
 
         this.addChild(this.FightAnimated);
-        this.addChild(auxZero);
-        this.addChild(this.hitBox);
         this.scale.x=-1;
+        this.addChild(auxZero);
+        this.FightAnimated.addChild(this.hitBox);
+        
 
         this.acceleration.y=Player.GRAVITY;
         keyboard.down.on("ArrowUp",this.Jump,this);
@@ -95,5 +97,30 @@ export class Player extends PhysicsContainer implements IHitbox
     public getHitbox():Rectangle
     {
         return this.hitBox.getBounds();
+    }
+
+    public separate(overlap: Rectangle, Plataform: ObservablePoint<any>) {
+        if(overlap.width<overlap.height){
+
+            if(this.x>Plataform.x)
+            {
+                this.x+=overlap.width;
+            }else if(this.x<Plataform.x)
+            {
+                this.x-=overlap.width;
+            }
+            
+        }else{
+            if(this.y>Plataform.y)
+            {
+                this.y-=overlap.height;
+                this.speed.y=0;
+                this.canJump=true;
+            }else if(this.y<Plataform.y)
+            {
+                this.y+=overlap.height;
+            }
+            
+        }
     }
 }
