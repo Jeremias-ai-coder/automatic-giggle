@@ -1,7 +1,8 @@
-import { Container, Graphics, Rectangle, Sprite,} from "pixi.js";
+import {  Graphics, Rectangle, Sprite,} from "pixi.js";
 import { IHitbox } from "./IHitbox";
+import { PhysicsContainer } from "./PhysicsContainer";
 
-export class Plataform extends Container implements IHitbox{
+export class Plataform extends PhysicsContainer implements IHitbox{
     
     private hitBox: Graphics;
     

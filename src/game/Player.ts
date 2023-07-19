@@ -7,7 +7,9 @@ export class Player extends PhysicsContainer implements IHitbox
 {
     
     private static readonly GRAVITY = 600;
-    private static readonly MOVE_SPEED = 350;
+    private static readonly MOVE_SPEED = 0;
+    private static readonly JUMP_SPEED= 700;
+
     public canJump=true;
     private FightAnimated: AnimatedSprite;
     private hitBox:Graphics;
@@ -79,10 +81,13 @@ export class Player extends PhysicsContainer implements IHitbox
             this.speed.x=0;
         }
 
-        // if(keyboard.state.get("ArrowUp"))
-        // {
-        //     this.Jump();
-        // }
+        if(keyboard.state.get("ArrowDown"))
+        {
+            this.acceleration.y= Player.GRAVITY*5;
+        }else
+        {
+            this.acceleration.y= Player.GRAVITY;
+        }
     }
 
     private Jump()
@@ -90,7 +95,7 @@ export class Player extends PhysicsContainer implements IHitbox
         if(this.canJump)
         {
             this.canJump=false;
-            this.speed.y=-700;
+            this.speed.y=-Player.JUMP_SPEED;
         }
     }
 
